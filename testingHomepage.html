@@ -35,8 +35,10 @@
   
 <!-- Segment Calls go here, at the bottom of the body --> 
 <script type="text/javascript">
-  /* Declare variables here */
-  var username = form["name"].value;
+      function identify(e){
+        e.preventDefault();
+        var form = e.target;
+        var username = form["name"].value;
 
   /* Segment functions go here */  
   analytics.identify('123abc', {
