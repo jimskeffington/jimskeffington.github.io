@@ -22,7 +22,7 @@
 
   <!-- Content: standard website form-->
   <form name="submit_data" onsubmit="identify(event)">
-  <!-- on clicking "submit" - some magic must happen: call on Segment's JS function -->
+  <!-- on clicking submit: call on Segment's JS function -->
     radio input:<br>
     <input type="radio" name="radio_input" value="type1" checked> Type 1 <br>
     <input type="radio" name="radio_input" value="type2"> Type 2 <br>
@@ -36,14 +36,17 @@
  <!-- Segment Calls go here, at the bottom of the body -->  
   <script type="text/javascript">
         function identify(e){
+          /* pull data from the form/site */
           e.preventDefault();
           var form = e.target;
           var fullname = form["fullname"].value;
 
+          /* send data to Segment: IDENTIFY users */
           analytics.identify('1234', {
               email: "test123@test.com", 
               name: fullname
           });
+          /* remember that the PAGE call gets sent by default, with the JS snipper in the header */
         }
   </script>
   
