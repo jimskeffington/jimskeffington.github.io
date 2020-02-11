@@ -10,7 +10,8 @@
   analytics.page();
   }}();
 </script>
-<!-- Copy/paste the above JS snippet.  If necessary, update the load key.  -->   
+  <!-- Copy/paste the above JS snippet.  If necessary, update the load key.  -->   
+  <!-- Notice that the PAGE call is made here (instead of in the footer).  -->  
   
 </head>
 <body>
@@ -50,8 +51,14 @@
           analytics.track('Form Submitted', {
             prefered_president: president,
           });
+          analytics.page('basic', 
+             /* name */             'jim\'s testing homepage', 
+             /* properties */       {'sample page property'},   /* must include brackets - even if empty */
+             /* options */          {integrations: {'Intercom': false}
+             /* callback */
+             );
           
-          /* remember that the PAGE call gets sent by default, with the JS snipper in the header */
+          /* remember that the PAGE call gets sent by default - with the JS snipper in the header */
         }
   </script>
   
