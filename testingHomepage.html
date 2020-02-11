@@ -28,7 +28,7 @@
     <input type="radio" name="radio_input" value="type2"> Type 2 <br>
     <br>
     name:<br>
-    <input type="text" name="name">
+    <input type="text" name="username_input">
     <br><br>
     <input name="submit" type="submit" value="submit"/>
   </form>
@@ -38,7 +38,7 @@
       function identify(e){
         e.preventDefault();
         var form = e.target;
-        var username = form["name"].value;
+        var username = form["username_input"].value;
       };
         
   /* Segment functions go here */  
