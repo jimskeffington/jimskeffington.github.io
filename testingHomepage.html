@@ -14,30 +14,36 @@
   
 </head>
 <body>
-
-<h1>Jim's Testing Webpage</h1>
-<p> This is a test </p>
-<br>
-
-<!-- Standard form specifications -->
-<form name="submit_data" onsubmit="identify(event)">
-<!-- on clicking "submit" - some magic must happen: call on Segment's JS function -->
-  radio input:<br>
-  <input type="radio" name="radio_input" value="male" checked> Type1 <br>
-  <input type="radio" name="radio_input" value="female"> Type2 <br>
-  <br>
-  text input:<br>
-  <input type="text" name="input_two">
-  <br><br>
-
-  <input name="submit" type="submit" value="submit"/>
-</form>
   
+  <!-- Website content -->
+  <h1>Jim's Testing Webpage</h1>
+  <p> This is a test </p>
+  <br>
+
+  <!-- Content: standard website form-->
+  <form name="submit_data" onsubmit="identify(event)">
+  <!-- on clicking "submit" - some magic must happen: call on Segment's JS function -->
+    radio input:<br>
+    <input type="radio" name="radio_input" value="type1" checked> Type 1 <br>
+    <input type="radio" name="radio_input" value="type2"> Type 2 <br>
+    <br>
+    name:<br>
+    <input type="text" name="name">
+    <br><br>
+    <input name="submit" type="submit" value="submit"/>
+  </form>
+  
+<!-- Segment Calls go here, at the bottom of the body --> 
 <script type="text/javascript">
-  analytics.identify('f4ca124298', {
-    name: 'Michael Bolton',
+  /* Declare variables here */
+  var username = form["name"].value;
+
+  /* Segment functions go here */  
+  analytics.identify('123abc', {
+    name: username,
     email: 'mbolton@initech.com'
   });
+  
 </script>
 
 </body>
