@@ -51,11 +51,12 @@
           analytics.track('Form Submitted', {
             prefered_president: president,
           });
-          analytics.page('basic'
-             );
-          
+          analytics.page('basic page'); 
           /* remember that the PAGE call gets sent by default - with the JS snipper in the header */
-        }
+          }
+          analytics.group('initital group of users', {
+            industry: 'initital industry'
+          });
   </script>
   
 
