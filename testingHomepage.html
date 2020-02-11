@@ -24,11 +24,11 @@
   <form name="submit_data" onsubmit="identify(event)">
   <!-- on clicking submit: call on Segment's JS function -->
     radio input:<br>
-    <input type="radio" name="radio_input" value="type1" checked> Type 1 <br>
-    <input type="radio" name="radio_input" value="type2"> Type 2 <br>
+    <input type="radio" name="president_input" value="JFK" checked> JFK Jr <br>
+    <input type="radio" name="president_input" value="Grant"> US Grant <br>
     <br>
     name:<br>
-    <input type="text" name="fullname">
+    <input type="text" name="fullname_input">
     <br><br>
     <input name="submit" type="submit" value="submit"/>
   </form>
@@ -39,13 +39,18 @@
           /* pull data from the form/site */
           e.preventDefault();
           var form = e.target;
-          var fullname = form["fullname"].value;
+          var fullname = form["fullname_input"].value;
+          var president = form["president_input"].value;
 
           /* send data to Segment: IDENTIFY users */
           analytics.identify('uniqueID_1a2b3c', {
-              email: "test123@test.com", 
-              name: fullname
+            email: "test123@test.com", 
+            name: fullname
           });
+          analytics.track('Form Submitted', {
+            prefered_president: president,
+          });
+          
           /* remember that the PAGE call gets sent by default, with the JS snipper in the header */
         }
   </script>
